@@ -1,0 +1,49 @@
+﻿<Page x:Class="FastType.View.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FastType.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="582" d:DesignWidth="1240"
+      Title="Страница авторизации">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="320" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="210" />
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/Images/welcome.png" />
+            <TextBlock Grid.Column="2" Text="Вход в систему" FontSize="50" FontWeight="SemiBold" TextWrapping="Wrap"/>
+        </Grid>
+
+        
+        <TextBlock Grid.Row="2" Text="Логин:"/>
+        <TextBlock Grid.Row="4" Text="Пароль:"/>
+
+        <TextBox Grid.Row="2" Grid.Column="4" Style="{StaticResource DefaultTextBox}"/>
+        <PasswordBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DefaultPasswordBox}"/>
+
+        <CheckBox Grid.Row="6" Grid.Column="2" Content="Запомнить меня"/>
+        <Button Grid.Row="8" Grid.Column="2" Content="Войти" Style="{StaticResource DefaultButton}"/>
+    </Grid>
+</Page>

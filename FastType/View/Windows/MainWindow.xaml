@@ -1,0 +1,52 @@
+﻿<Window x:Class="FastType.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FastType"
+        mc:Ignorable="d"
+        Title="Главное окно" MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="White">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <!--#region Меню -->
+
+        <Grid Height="70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="FastType" Style="{StaticResource LogoTextBlock}"/>
+
+            <Button Grid.Column="2" Content="Тренажёр" Style="{StaticResource MenuButton}"/>
+
+            <Button Grid.Column="4" Content="Тестирование" Style="{StaticResource MenuButton}"/>
+
+            <Button Grid.Column="6" Content="Рейтинг" Style="{StaticResource MenuButton}"/>
+
+            <Button Grid.Column="10" Content="Профиль" Style="{StaticResource MenuButton}"/>
+        </Grid>
+        
+        <!-- #endregion -->
+        
+        <!-- #region Страницы -->
+
+        <Frame Name="MainFrame" Grid.Row="2" NavigationUIVisibility="Hidden"/>
+
+        <!-- #endregion -->
+    </Grid>
+</Window>
