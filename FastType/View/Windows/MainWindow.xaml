@@ -32,7 +32,7 @@
 
             <TextBlock Text="FastType" Style="{StaticResource LogoTextBlock}"/>
 
-            <Button Grid.Column="2" Content="Тренажёр" Style="{StaticResource MenuButton}"/>
+            <Button Name="TypingTutorBtn" Grid.Column="2" Content="Тренажёр" Style="{StaticResource MenuButton}" Click="TypingTutorBtn_Click"/>
 
             <Button Grid.Column="4" Content="Тестирование" Style="{StaticResource MenuButton}"/>
 

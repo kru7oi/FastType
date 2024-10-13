@@ -51,4 +51,31 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="TextBox" x:Key="TypingTutorTextBox">
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Manrope" />
+        <Setter Property="FontSize" Value="35" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="#0a335c" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="5 0" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="#0a335c" Direction="270" ShadowDepth="0" BlurRadius="50" Opacity=".3"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Padding="{TemplateBinding Padding}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
