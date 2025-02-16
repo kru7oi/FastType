@@ -23,8 +23,6 @@
                 <ColumnDefinition Width="20" />
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="20" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="20" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="auto" />
@@ -34,16 +32,14 @@
 
             <Button Name="TypingTutorBtn" Grid.Column="2" Content="Тренажёр" Style="{StaticResource MenuButton}" Click="TypingTutorBtn_Click"/>
 
-            <Button Grid.Column="4" Content="Тестирование" Style="{StaticResource MenuButton}"/>
+            <Button Grid.Column="4" Content="Рейтинг" Style="{StaticResource MenuButton}"/>
 
-            <Button Grid.Column="6" Content="Рейтинг" Style="{StaticResource MenuButton}"/>
-
-            <Button Grid.Column="10" Content="Профиль" Style="{StaticResource MenuButton}"/>
+            <Button Grid.Column="8" Content="Профиль" Style="{StaticResource MenuButton}"/>
         </Grid>
         
         <!-- #endregion -->
         
-        <!-- #region Страницы -->
+        <!-- #region Страничная навигация -->
 
         <Frame Name="MainFrame" Grid.Row="2" NavigationUIVisibility="Hidden"/>
 

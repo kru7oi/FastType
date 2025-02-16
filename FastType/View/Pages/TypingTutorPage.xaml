@@ -1,120 +1,139 @@
 ﻿<Page x:Class="FastType.View.Pages.TypingTutorPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:FastType.View.Pages"
-      mc:Ignorable="d" 
+      xmlns:btn="clr-namespace:FastType.AppData"
+      mc:Ignorable="d"
       d:DesignHeight="582" d:DesignWidth="1240" Title="Тренажёр для печати">
-    <Grid Margin="20 40" VerticalAlignment="Center">
+    <Grid Name="MainGrid" Margin="20 40" VerticalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="20" />
             <RowDefinition Height="50" />
             <RowDefinition Height="20" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+        
+        <TextBlock Name="TypingTutorTbl" FontSize="35" Foreground="#0a335c" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Text="тестовый текст, который очень сложно печатать"/>
 
-        <TextBox Name="TypingTutorTb" Text="мир дверь мяч" Style="{StaticResource TypingTutorTextBox}"/>
+        <TextBox Name="TypingTutorTb" Grid.Row="2" Style="{StaticResource TypingTutorTextBox}" />
 
-        <Grid Grid.Row="2" HorizontalAlignment="Center" Width="400">
+        <Grid Grid.Row="4" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource IconButton}">
+            <Button Style="{StaticResource IconButton}" Focusable="False">
                 <Button.Content>
                     <Image Source="/Resources/Images/reload-icon.png" />
                 </Button.Content>
             </Button>
-            <ProgressBar Grid.Column="2" Value="45" Height="25"/>
+            <ProgressBar Name="TypingProgressPb" Grid.Column="2" Minimum="0" Maximum="100" Height="25" Focusable="False" />
+            <Image Grid.Column="4" Source="/Resources/Images/type-accuracy-icon.png" Width="30"/>
+            <TextBlock Name="AccuracyTbl" Grid.Column="6" Focusable="False" Text="0%"/>
+            <Image Grid.Column="8" Source="/Resources/Images/type-speed-icon.png" Width="30" />
+            <TextBlock Name="SpeedTbl" Grid.Column="10" Focusable="False" Text="0 СВМ"/>
         </Grid>
-        
-        <!--#region Клавиатура -->
-        <Grid Grid.Row="4" HorizontalAlignment="Center" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="5" />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <Button Content="ё" Style="{StaticResource GrayKeyboardKey}"/>
-                <Button Content="1" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="2" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="3" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="4" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="5" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="6" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="7" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="8" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="9" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="0" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="-" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="=" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="⟵" Width="80" Style="{StaticResource GrayKeyboardKey}"/>
-            </StackPanel>
-            
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <Button Content="TAB" Width="80" Style="{StaticResource GrayKeyboardKey}"/>
-                <Button Content="й" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="ц" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="у" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="к" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="е" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="н" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="г" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="ш" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="щ" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="з" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="х" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="ъ" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="\" Style="{StaticResource GrayKeyboardKey}"/>
-            </StackPanel>
-            
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <Button Content="CAPS" Width="100" Style="{StaticResource GrayKeyboardKey}"/>
-                <Button Content="ф" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="ы" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="в" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="а" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="п" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="р" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="о" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="л" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="д" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="ж" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="э" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="ENTER" Width="90" Style="{StaticResource GrayKeyboardKey}"/>
-            </StackPanel>
-            
-            <StackPanel Grid.Row="6" Orientation="Horizontal">
-                <Button Content="SHIFT" Width="125" Style="{StaticResource GrayKeyboardKey}"/>
-                <Button Content="я" Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="ч" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="с" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="м" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="и" Style="{StaticResource BlueKeyboardKey}"/>
-                <Button Content="т" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="ь" Style="{StaticResource YellowKeyboardKey}"/>
-                <Button Content="б" Style="{StaticResource RedKeyboardKey}"/>
-                <Button Content="ю" Style="{StaticResource GreenKeyboardKey}"/>
-                <Button Content="." Style="{StaticResource PurpleKeyboardKey}"/>
-                <Button Content="SHIFT" Width="125" Style="{StaticResource GrayKeyboardKey}"/>
-            </StackPanel>
-            
-            <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="" Width="350" Style="{StaticResource GrayKeyboardKey}"/>
-            </StackPanel>
-        </Grid>
+        <!--#region Клавиатура -->
+        <Viewbox Grid.Row="6" HorizontalAlignment="Center" Width="1200">
+            <Grid Name="KeyboardGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Tag="Oem3" Content="ё" Style="{StaticResource GrayKeyboardKey}"/>
+                    <Button Tag="D1" Content="1" Style="{StaticResource PurpleKeyboardKey}"/>
+                    <Button Tag="D2" Content="2" Style="{StaticResource PurpleKeyboardKey}"/>
+                    <Button Tag="D3" Content="3" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="D4" Content="4" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="D5" Content="5" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="D6" Content="6" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="D7" Content="7" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="D8" Content="8" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="D9" Content="9" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="D0" Content="0" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="OemMinus" Content="-" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="OemPlus" Content="=" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="Back" Content="⟵" Width="80" Style="{StaticResource GrayKeyboardKey}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Button Tag="Tab" Content="Tab" Width="80" Style="{StaticResource GrayKeyboardKey}" />
+                    <Button Tag="Q" Content="й" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="W" Content="ц" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="E" Content="у" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="R" Content="к" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="T" Content="е" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="Y" Content="н" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="U" Content="г" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="I" Content="ш" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="O" Content="щ" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="P" Content="з" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="OemOpenBrackets" Content="х" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="Oem6" Content="ъ" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="Oem5" Content="\" Style="{StaticResource GrayKeyboardKey}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <Button Tag="Capital" Content="Caps" Width="100" Style="{StaticResource GrayKeyboardKey}" />
+                    <Button Tag="A" Content="ф" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="S" Content="ы" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="D" Content="в" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="F" Content="а" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="G" Content="п" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="H" Content="р" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="J" Content="о" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="K" Content="л" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="L" Content="д" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="Oem1" Content="ж" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="OemQuotes" Content="э" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="Return" Content="Enter" Width="90" Style="{StaticResource GrayKeyboardKey}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <Button Tag="LeftShift" Content="Shift" Width="125" Style="{StaticResource GrayKeyboardKey}" />
+                    <Button Tag="Z" Content="я" Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="X" Content="ч" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="C" Content="с" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="V" Content="м" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="B" Content="и" Style="{StaticResource BlueKeyboardKey}" />
+                    <Button Tag="N" Content="т" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="M" Content="ь" Style="{StaticResource YellowKeyboardKey}" />
+                    <Button Tag="OemComma" Content="б" Style="{StaticResource RedKeyboardKey}" />
+                    <Button Tag="OemPeriod" Content="ю" Style="{StaticResource GreenKeyboardKey}" />
+                    <Button Tag="OemQuestion" Content="." Style="{StaticResource PurpleKeyboardKey}" />
+                    <Button Tag="RightShift" Content="Shift" Width="125" Style="{StaticResource GrayKeyboardKey}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Tag="Space" Content="Space" Width="350" Style="{StaticResource GrayKeyboardKey}" />
+                </StackPanel>
+            </Grid>
+        </Viewbox>
         <!--#endregion-->
     </Grid>
 </Page>

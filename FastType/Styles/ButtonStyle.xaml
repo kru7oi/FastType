@@ -37,7 +37,7 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="#0a335c" />
         <Setter Property="Padding" Value="20 0" />
-        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BorderBrush" Value="#FF0FAEFB" />
         <Setter Property="Background" Value="#FFDFF4FE" />
         <Setter Property="Cursor" Value="Hand" />
@@ -94,18 +94,14 @@
         <Setter Property="Width" Value="50" />
         <Setter Property="Height" Value="50" />
         <Setter Property="Margin" Value="5 0" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Foreground" Value="#0a335c" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="BorderThickness" Value="2 2 2 5" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -116,7 +112,7 @@
         <Setter Property="BorderBrush" Value="#FF4C5052" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
-    
+
     <Style TargetType="Button" x:Key="PurpleKeyboardKey" BasedOn="{StaticResource KeyboardKey}">
         <Setter Property="Background" Value="#FFC9C9FD" />
         <Setter Property="BorderBrush" Value="#FF2C2D69" />
